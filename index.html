@@ -1,218 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARTIFACT A: THE B2B ARCHITECT CARD</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-color: #050505; /* Deep Onyx Studio Background */
-            color: #ffffff;
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            -webkit-font-smoothing: antialiased;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 30px 30px;
-        }
+import React from 'react';
+import { ArrowRight, Activity, Cpu, Database } from 'lucide-react';
 
-        .font-serif { font-family: 'Playfair Display', serif; }
-        .font-mono { font-family: 'JetBrains Mono', monospace; }
+export default function EcosystemHub() {
+  return (
+    <div className="min-h-screen bg-zinc-950 text-zinc-50 font-sans selection:bg-cyan-900 selection:text-cyan-50 flex flex-col items-center justify-center p-6">
+      
+      {/* Hero Section */}
+      <div className="max-w-3xl w-full text-center space-y-6 mb-16 mt-12">
+        <h3 className="text-cyan-400 tracking-widest text-xs font-bold uppercase">The M.O.E. Group</h3>
+        <h1 className="text-4xl md:text-5xl font-light tracking-tight text-white">
+          Enterprise Architecture for <span className="font-semibold text-cyan-400">Human Performance.</span>
+        </h1>
+        <p className="text-zinc-400 text-lg md:text-xl font-light max-w-2xl mx-auto">
+          We plug the metabolic and operational leaks in high-performance environments. Select your required architecture below.
+        </p>
+      </div>
 
-        /* 
-         * CARD SPECIFICATIONS:
-         * Aspect Ratio: 3.25 : 2 (Standard A7 Minimalist)
-         * Material: 400gsm Heavy Matte Black Silk
-         */
-        .b2b-card {
-            width: 100%;
-            max-width: 487.5px; /* Scaled 150x for web visibility */
-            aspect-ratio: 3.25 / 2;
-            background-color: #111111; /* True Matte Black */
-            border: 1px solid #27272a; /* Edge definition */
-            position: relative;
-            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255,255,255,0.02);
-            display: flex;
-            flex-direction: column;
-            padding: 2.5rem;
-            overflow: hidden;
-            box-sizing: border-box;
-        }
+      {/* The Three Pillars */}
+      <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+        
+        {/* Pillar 1: Hardware */}
+        <a href="/assets/hardware-dossier.pdf" target="_blank" rel="noopener noreferrer" 
+           className="group block p-8 rounded-xl bg-zinc-900/50 border border-zinc-800 hover:border-cyan-500/50 transition-all duration-300 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-1 h-full bg-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <Activity className="w-8 h-8 text-cyan-400 mb-6" />
+          <h2 className="text-xl font-semibold text-white mb-3">Hardware</h2>
+          <p className="text-zinc-400 text-sm mb-6">Kinetic & Biomechanical Systems. Eliminating structural breakdown and systemic pain.</p>
+          <div className="flex items-center text-xs font-bold text-cyan-400 tracking-wider uppercase">
+            Access Dossier <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+          </div>
+        </a>
 
-        /* Simulating the "Silk/Matte" zero-gloss texture */
-        .silk-texture {
-            position: absolute;
-            inset: 0;
-            opacity: 0.2;
-            pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            mix-blend-mode: overlay;
-        }
+        {/* Pillar 2: Fuel */}
+        <a href="/assets/fuel-dossier.pdf" target="_blank" rel="noopener noreferrer" 
+           className="group block p-8 rounded-xl bg-zinc-900/50 border border-zinc-800 hover:border-cyan-500/50 transition-all duration-300 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-1 h-full bg-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <Database className="w-8 h-8 text-cyan-400 mb-6" />
+          <h2 className="text-xl font-semibold text-white mb-3">Fuel</h2>
+          <p className="text-zinc-400 text-sm mb-6">Metabolic Resilience Protocols. Engineering sustainable energy for executive teams.</p>
+          <div className="flex items-center text-xs font-bold text-cyan-400 tracking-wider uppercase">
+            Access Dossier <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+          </div>
+        </a>
 
-        /* Debossed Typography Simulation */
-        .text-debossed {
-            color: #f4f4f5;
-            text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.1), 0px -1px 1px rgba(0, 0, 0, 0.8);
-        }
+        {/* Pillar 3: Software */}
+        <a href="/assets/software-dossier.pdf" target="_blank" rel="noopener noreferrer" 
+           className="group block p-8 rounded-xl bg-zinc-900/50 border border-zinc-800 hover:border-cyan-500/50 transition-all duration-300 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-1 h-full bg-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <Cpu className="w-8 h-8 text-cyan-400 mb-6" />
+          <h2 className="text-xl font-semibold text-white mb-3">Software</h2>
+          <p className="text-zinc-400 text-sm mb-6">Workflow Automation & NLP. Building the internal OS that allows founders to scale.</p>
+          <div className="flex items-center text-xs font-bold text-cyan-400 tracking-wider uppercase">
+            Access Dossier <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+          </div>
+        </a>
 
-        /* UI Metadata Bar */
-        .system-bar {
-            background-color: rgba(10, 10, 10, 0.9);
-            border-bottom: 1px solid #27272a;
-            backdrop-filter: blur(5px);
-            position: sticky;
-            top: 0;
-            z-index: 50;
-        }
-    </style>
-</head>
-<body class="pb-24">
+      </div>
 
-    <!-- SYSTEM CONTROL BAR -->
-    <div class="system-bar px-6 py-4 flex justify-between items-center">
-        <div class="flex items-center gap-3">
-            <div class="w-2 h-2 bg-cyan-500 rounded-full animate-pulse"></div>
-            <span class="font-mono text-[10px] tracking-[0.2em] text-cyan-500 uppercase">ARTIFACT A: PROOFING STUDIO</span>
-        </div>
-        <div class="font-mono text-[10px] tracking-[0.2em] text-zinc-500 uppercase border border-zinc-800 px-3 py-1 bg-black">
-            PROTOTYPE RUN: 100 UNITS
-        </div>
+      {/* Final CTA */}
+      <div className="max-w-xl w-full text-center border-t border-zinc-800 pt-12 pb-12">
+        <h2 className="text-2xl font-light text-white mb-6">Ready to integrate the system?</h2>
+        <a href="https://wa.me/YOUR_PHONE_NUMBER?text=System%20Gate%20cleared.%20I%20have%20reviewed%20the%20dossiers%20and%20am%20ready%20for%20my%20Strategy%20Calibration." 
+           className="inline-flex items-center justify-center px-8 py-4 bg-white text-black font-bold tracking-wide uppercase text-sm hover:bg-cyan-400 transition-colors duration-300">
+          Initialize Calibration Session
+        </a>
+      </div>
+      
     </div>
-
-    <main class="max-w-7xl mx-auto w-full px-6 pt-12">
-
-        <div class="text-center mb-16">
-            <h1 class="font-serif text-3xl text-zinc-200 tracking-wide mb-2">The B2B Architect Card</h1>
-            <p class="font-mono text-xs text-zinc-500 tracking-[0.1em] uppercase">Material: 400gsm Heavy Matte Black // Dimension: 3.25" x 2"</p>
-        </div>
-
-        <div class="grid lg:grid-cols-2 gap-16 lg:gap-8 items-start">
-            
-            <!-- ========================================== -->
-            <!-- OPTION 1: THE UNIFIED STACK CARD           -->
-            <!-- ========================================== -->
-            <div class="flex flex-col items-center space-y-8">
-                <div class="w-full text-center border-b border-zinc-800 pb-2 mb-2">
-                    <span class="font-mono text-[10px] text-zinc-400 tracking-[0.2em] uppercase">Option 1: The Unified Stack</span>
-                </div>
-
-                <!-- OPTION 1: FRONT -->
-                <div class="b2b-card">
-                    <div class="silk-texture"></div>
-                    <!-- Header -->
-                    <div class="font-mono text-[8px] uppercase tracking-[0.3em] text-zinc-500 mb-auto relative z-10">
-                        THE M.O.E. GROUP
-                    </div>
-                    
-                    <!-- Core Identity -->
-                    <div class="relative z-10">
-                        <h2 class="font-serif text-[1.8rem] tracking-[0.15em] uppercase text-debossed leading-none mb-1">
-                            Joey Tan
-                        </h2>
-                        <p class="text-[8px] uppercase tracking-[0.25em] text-zinc-400 font-medium">
-                            Architects of Human Performance Ecosystems
-                        </p>
-                    </div>
-
-                    <!-- Footer / Stack -->
-                    <div class="mt-auto pt-6 relative z-10">
-                        <p class="font-mono text-[7px] text-zinc-500 tracking-[0.2em] uppercase">
-                            BIOMECHANICS <span class="text-zinc-700 mx-1">//</span> METABOLICS <span class="text-zinc-700 mx-1">//</span> NLP
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ========================================== -->
-            <!-- OPTION 2: THE ENTERPRISE ARCHITECT         -->
-            <!-- ========================================== -->
-            <div class="flex flex-col items-center space-y-8">
-                <div class="w-full text-center border-b border-zinc-800 pb-2 mb-2">
-                    <span class="font-mono text-[10px] text-zinc-400 tracking-[0.2em] uppercase">Option 2: The Enterprise Role</span>
-                </div>
-
-                <!-- OPTION 2: FRONT -->
-                <div class="b2b-card justify-center text-center">
-                    <div class="silk-texture"></div>
-                    
-                    <!-- Core Identity -->
-                    <div class="relative z-10 m-auto w-full">
-                        <h2 class="font-serif text-[1.8rem] tracking-[0.2em] uppercase text-debossed leading-none mb-3">
-                            Joey Tan
-                        </h2>
-                        <p class="font-mono text-[8px] uppercase tracking-[0.3em] text-zinc-400">
-                            Enterprise Systems Architect
-                        </p>
-                    </div>
-
-                    <!-- Footer / Stack -->
-                    <div class="mt-auto border-t border-zinc-800/60 pt-4 relative z-10">
-                        <p class="font-mono text-[6.5px] text-zinc-500 tracking-[0.2em] uppercase flex justify-between w-full">
-                            <span>Kinetic Programming</span>
-                            <span class="text-zinc-700">|</span>
-                            <span>Metabolic Resilience</span>
-                            <span class="text-zinc-700">|</span>
-                            <span>Behavioral Automation</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- ========================================== -->
-        <!-- SHARED BACK DESIGN                         -->
-        <!-- ========================================== -->
-        <div class="mt-24 flex flex-col items-center">
-            <div class="w-full max-w-md text-center border-b border-zinc-800 pb-2 mb-10">
-                <span class="font-mono text-[10px] text-zinc-400 tracking-[0.2em] uppercase">Shared Back Design (The Hub Gate)</span>
-            </div>
-
-            <div class="b2b-card items-center justify-center">
-                <div class="silk-texture"></div>
-                
-                <!-- Central QR Code (SVG Placeholder) -->
-                <div class="relative z-10 w-20 h-20 bg-zinc-100 p-1.5 m-auto">
-                    <svg viewBox="0 0 100 100" class="w-full h-full text-zinc-900">
-                        <rect x="10" y="10" width="25" height="25" fill="none" stroke="currentColor" stroke-width="4"/>
-                        <rect x="15" y="15" width="15" height="15" fill="currentColor"/>
-                        <rect x="65" y="10" width="25" height="25" fill="none" stroke="currentColor" stroke-width="4"/>
-                        <rect x="70" y="15" width="15" height="15" fill="currentColor"/>
-                        <rect x="10" y="65" width="25" height="25" fill="none" stroke="currentColor" stroke-width="4"/>
-                        <rect x="15" y="70" width="15" height="15" fill="currentColor"/>
-                        
-                        <!-- Inner data blocks -->
-                        <rect x="45" y="15" width="10" height="10" fill="currentColor"/>
-                        <rect x="45" y="30" width="10" height="10" fill="currentColor"/>
-                        <rect x="15" y="45" width="10" height="10" fill="currentColor"/>
-                        <rect x="30" y="45" width="10" height="10" fill="currentColor"/>
-                        <rect x="65" y="45" width="10" height="10" fill="currentColor"/>
-                        <rect x="80" y="45" width="10" height="10" fill="currentColor"/>
-                        <rect x="45" y="65" width="10" height="10" fill="currentColor"/>
-                        <rect x="45" y="80" width="10" height="10" fill="currentColor"/>
-                        <rect x="65" y="65" width="25" height="25" fill="currentColor"/>
-                    </svg>
-                </div>
-
-                <!-- Call to Action -->
-                <div class="mt-auto w-full text-center relative z-10 pt-4">
-                    <p class="font-mono text-[7px] text-zinc-400 tracking-[0.2em] uppercase leading-relaxed">
-                        The Unifying Internal OS.<br>
-                        <span class="text-zinc-600">Scan to authorize diagnostic profiling.</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-    </main>
-
-</body>
-</html>
+  );
+}
